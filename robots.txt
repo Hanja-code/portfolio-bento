@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio-bento-kappa.vercel.app/sitemap.xml
