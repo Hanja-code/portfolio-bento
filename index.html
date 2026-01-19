@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portfolio | HANJA Eli Dina - Développeur Full Stack</title>
+    <meta name="description" content="Découvrez le portfolio de HANJA Eli Dina, développeur Full Stack basé à Madagascar. Expert en HTML, CSS, JavaScript, PHP, et MySQL pour des applications web performantes.">
+    <meta name="keywords" content="HANJA Eli Dina, Développeur Web, Full Stack, Madagascar, Antananarivo, PHP, MySQL, React, Portfolio">
+    <meta name="author" content="HANJA Eli Dina">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio | HANJA Eli Dina">
+    <meta property="og:description" content="Développeur Full Stack spécialisé dans la conception d'applications web modernes et évolutives.">
+    <meta property="og:image" content="assets/img/HANJA_Eli_Dina.png">
+    <meta property="og:url" content="https://votre-url-ici.com">
+    
+    <!-- Favicon classique -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+
+    <!-- Pour Apple devices -->
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+    <!-- Pour Android / Chrome -->
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="icon" sizes="192x192" href="assets/icons/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="assets/icons/android-chrome-512x512.png">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cursor-3d" id="cursor3d" aria-hidden="true">
+        <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+        </div>
+    </div>
+
+    <main class="portfolio-grid">
+        
+        <section class="tile profile-section">
+<div class="profile-info">
+    <div class="profile-img">
+        <img src="assets/img/HANJA_Eli_Dina.png" 
+             alt="Portrait de HANJA Eli Dina – Développeur Full Stack à Madagascar" 
+             loading="lazy">
+    </div>
+    <h1 class="profile-name">
+        <span class="first-name">HANJA</span><br>
+        <span class="last-name">Eli Dina</span>
+    </h1>
+
+<p class="profile-bio">
+    Après mon baccalauréat, je me suis orienté vers l’informatique sans réel plan, sur les conseils de ma famille,
+    sans aucune base en développement. Mes débuts ont été difficiles, entre HTML, CSS et JavaScript,
+    sans projet concret ni réelle compréhension.
+    <br><br>
+    Avec le temps, la curiosité et les recherches personnelles m’ont permis de découvrir le potentiel du développement web.
+    Malgré les doutes, j’ai choisi de m’y investir sérieusement. La formation de développeur web chez GasyTech
+    a marqué un tournant et m’a permis de construire mes premiers projets.
+    <br><br>
+    Aujourd’hui, je développe des applications web en <strong>Front-end</strong> et <strong>Back-end</strong>
+    avec des technologies modernes, tout en continuant à apprendre et à transformer mes idées en solutions concrètes.
+</p>
+
+    <div class="social-links">
+        <a href="https://github.com/Hanja-code" target="_blank" rel="noopener" title="GitHub" aria-label="Visiter mon profil GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/hanja-eli-dina-776211279" target="_blank" rel="noopener" title="LinkedIn" aria-label="Suivre mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://web.facebook.com/profile.php?id=100092947646988" target="_blank" rel="noopener" title="Facebook" aria-label="Me retrouver sur Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:hanjaelidina@gmail.com" title="Envoyer un email" aria-label="M'envoyer un email direct"><i class="fas fa-envelope"></i></a>
+    </div>
+</div>
+
+            <div class="localisation">
+                <div class="location">
+                    <i class="fas fa-location-dot" aria-hidden="true"></i> Antananarivo, Madagascar
+                </div>
+                <div class="phone location">
+                    <i class="fas fa-phone" aria-hidden="true"></i> +261 38 37 050 16
+                </div>
+            </div>
+        </section>
+
+        <section class="tile projects-section">
+            <div class="projects-header">
+                <h2><i class="fas fa-rocket" aria-hidden="true"></i> Travaux Sélectionnés</h2>
+                <div class="scroll-progress"></div> 
+            </div>
+            <div class="projects-grid" id="projects-container"></div>
+        </section>
+
+        <section class="tile skills-section">
+            <h3><i class="fas fa-code" aria-hidden="true"></i> Stack & Outils</h3>
+            <p class="stack-desc">
+                Technologies et outils que j’utilise pour concevoir, développer et maintenir des applications web.
+                Une stack orientée performance, clarté du code et évolution continue.
+            </p>
+
+            <div class="marquee">
+                <div class="marquee-content">
+                    <div class="skill-tag" data-skill="html"><i class="fab fa-html5"></i> HTML</div>
+                    <div class="skill-tag" data-skill="css"><i class="fab fa-css3-alt"></i> CSS</div>
+                    <div class="skill-tag" data-skill="js"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-tag" data-skill="php"><i class="fab fa-php"></i> PHP</div>
+                    <div class="skill-tag" data-skill="mysql"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="skill-tag" data-skill="ajax"><i class="fas fa-exchange-alt"></i> AJAX</div>
+                    <div class="skill-tag" data-skill="sass"><i class="fab fa-sass"></i> Sass</div>
+                    <div class="skill-tag" data-skill="react"><i class="fab fa-react"></i> React</div>
+                    <div class="skill-tag" data-skill="node"><i class="fab fa-node-js"></i> Node.js</div>
+                    <div class="skill-tag" data-skill="express"><i class="fas fa-server"></i> Express</div>
+                    <div class="skill-tag" data-skill="prisma"><i class="fas fa-layer-group"></i> Prisma</div>
+                    <div class="skill-tag" data-skill="postgresql"><i class="fas fa-database"></i> PostgreSQL</div>
+                    <div class="skill-tag" data-skill="tailwind"><i class="fas fa-wind"></i> Tailwind CSS</div>
+                    <div class="skill-tag" data-skill="git"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="skill-tag" data-skill="docker"><i class="fab fa-docker"></i> Docker</div>
+                    <div class="skill-tag" data-skill="vscode"><i class="fas fa-code"></i> VS Code</div>
+                    <div class="skill-tag" data-skill="npm"><i class="fab fa-npm"></i> NPM</div>
+                    <div class="skill-tag" data-skill="api"><i class="fas fa-plug"></i> REST API</div>
+                    <div class="skill-tag" data-skill="wamp"><i class="fas fa-server"></i> WAMP</div>
+                    <div class="skill-tag" data-skill="xampp"><i class="fas fa-server"></i> XAMPP</div>
+                    <div class="skill-tag" data-skill="figma"><i class="fab fa-figma"></i> Figma</div>
+                    <div class="skill-tag" data-skill="ai"><i class="fas fa-brain"></i> IA</div>
+                    <div class="skill-tag" data-skill="illustrator"><i class="fas fa-pen-nib"></i> Adobe Illustrator</div>
+                    
+                    <div class="skill-tag" aria-hidden="true" data-skill="html"><i class="fab fa-html5"></i> HTML</div>
+                    </div>
+            </div>
+
+            <p class="cv-text">Envie d'en savoir plus sur mon parcours ?</p>
+            <button class="cv-button" aria-label="Télécharger le curriculum vitae de Hanja Eli Dina">
+                <i class="fas fa-file-download" aria-hidden="true"></i> Télécharger mon CV
+            </button>
+        </section>
+
+        <section class="tile contact-section">
+            <div class="availability">
+                <span class="dot" aria-hidden="true"></span> Disponible
+            </div>
+            <div class="contact-main">
+                <h3>Travaillons ensemble</h3>
+                <p class="stack-desc">
+                    Vous avez une idée, un projet ou simplement une question ? 
+                    N’hésitez pas à me contacter.
+                </p>
+                <button id="cta-collab" class="cta-button">
+                    Collaborer <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                
+                <div class="hover-email" title="Cliquer pour copier l'email">
+                    <span class="email-text">hanjaelidina@gmail.com</span>
+                    <i class="far fa-copy" aria-hidden="true"></i>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal-overlay" id="contactModal" role="dialog" aria-labelledby="modal-contact-title">
+            <div class="modal-content">
+                <button class="close-modal" aria-label="Fermer la fenêtre"><i class="fas fa-times"></i></button>
+                <h2 id="modal-contact-title">Faisons connaissance</h2>
+                <span class="modal-subtitle">Je vous réponds sous 24 heures.</span>
+                
+                <form id="contact-form">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Comment puis-je vous appeler ?" required aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Votre adresse email" required aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" placeholder="Décrivez brièvement votre projet..." rows="3" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="projectDetailModal" role="dialog">
+            <div class="project-modal-card">
+                <button class="close-project-modal" aria-label="Fermer les détails"><i class="fas fa-times"></i></button>
+                <div class="modal-scroll-area">
+                    <header class="modal-project-header">
+                        <div id="modal-main-img" class="main-project-img"></div>
+                        <div class="header-overlay">
+                            <h2 id="modal-title">Nom du Projet</h2>
+                            <span id="modal-tag" class="project-tag">Web Design</span>
+                        </div>
+                    </header>
+                    <div class="modal-detailed-content">
+                        <div class="details-grid">
+                            <div class="description-col">
+                                <h3><i class="fas fa-align-left"></i> Description</h3>
+                                <p id="modal-description"></p>
+                                <div class="project-links">
+                                    <a href="#" id="modal-link" target="_blank" rel="noopener" class="submit-btn">
+                                        Voir le projet en ligne <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="specs-col">
+                                <h3><i class="fas fa-layer-group"></i> Technologies</h3>
+                                <div id="modal-stack" class="modal-stack-list"></div>
+                                <div class="database-tool-info">
+                                    <h3><i class="fas fa-server"></i> Environnement</h3>
+                                    <div id="modal-tools" class="tools-list"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-gallery">
+                            <h3><i class="fas fa-images"></i> Aperçus & Responsive</h3>
+                            <div id="modal-gallery-grid" class="gallery-grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
