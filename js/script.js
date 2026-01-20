@@ -76,7 +76,7 @@ function renderProjects() {
                             let iconName = t;
                             let prefix = 'fab';
                             if (t === 'js') iconName = 'js-square';
-                            if (t === 'scss') iconName = 'sass';
+                            if (t === 'scss' || t === 'sass') { iconName = 'sass'; prefix = 'fab'; }
                             if (t === 'database' || t === 'server' || t === 'mysql') {
                                 iconName = 'database';
                                 prefix = 'fas';
@@ -130,22 +130,26 @@ animate();
 
 // --- EFFETS DU CUBE AU SURVOL ---
 document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('a, .project-card, .cta-button, .skill-tag, .tile')) {
-        cube.style.transform = 'scale(1.8)'; 
-        document.querySelectorAll('.face').forEach(f => {
-            f.style.background = 'rgba(59, 130, 246, 0.5)';
-            f.style.borderColor = 'rgba(255, 255, 255, 0.8)';
-        });
+    if (e.target.closest('a, .project-card, .cta-button, .skill-tag, .tile, button')) {
+        if(cube) {
+            cube.style.transform = 'scale(1.8)'; 
+            document.querySelectorAll('.face').forEach(f => {
+                f.style.background = 'rgba(59, 130, 246, 0.5)';
+                f.style.borderColor = 'rgba(255, 255, 255, 0.8)';
+            });
+        }
     }
 });
 
 document.addEventListener('mouseout', (e) => {
-    if (e.target.closest('a, .project-card, .cta-button, .skill-tag, .tile')) {
-        cube.style.transform = 'scale(1)';
-        document.querySelectorAll('.face').forEach(f => {
-            f.style.background = 'rgba(59, 130, 246, 0.2)';
-            f.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-        });
+    if (e.target.closest('a, .project-card, .cta-button, .skill-tag, .tile, button')) {
+        if(cube) {
+            cube.style.transform = 'scale(1)';
+            document.querySelectorAll('.face').forEach(f => {
+                f.style.background = 'rgba(59, 130, 246, 0.2)';
+                f.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+            });
+        }
     }
 });
 
@@ -157,7 +161,8 @@ projectSection?.addEventListener('scroll', () => {
     const scrolled = projectSection.scrollTop;
     const height = projectSection.scrollHeight - projectSection.clientHeight;
     const percentage = (scrolled / height) * 100;
-    document.querySelector('.scroll-progress').style.setProperty('--scroll-height', percentage + '%');
+    const progress = document.querySelector('.scroll-progress');
+    if(progress) progress.style.setProperty('--scroll-height', percentage + '%');
 });
 
 const skillTags = document.querySelectorAll('.skill-tag');
@@ -183,23 +188,64 @@ skillTags.forEach(tag => {
 });
 
 // ==========================================================================
-// 5. MODALE DE CONTACT & CLIPBOARD
+// 5. MODALE DE CONTACT (AVEC ENVOI FORMSPREE)
 // ==========================================================================
 const contactModal = document.getElementById('contactModal');
 const openBtn = document.getElementById('cta-collab');
 const closeBtn = document.querySelector('.close-modal');
-const hoverEmail = document.querySelector('.hover-email');
+const contactForm = document.getElementById('contact-form');
+const modalInner = document.querySelector('.modal-content');
 
 openBtn?.addEventListener('click', () => contactModal.classList.add('active'));
 closeBtn?.addEventListener('click', () => contactModal.classList.remove('active'));
 window.addEventListener('click', (e) => { if (e.target === contactModal) contactModal.classList.remove('active'); });
 
+// Gestionnaire d'envoi AJAX
+contactForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.submit-btn');
+    const originalBtnText = btn.innerText;
+    
+    btn.innerText = "Envoi en cours...";
+    btn.disabled = true;
+
+    try {
+        const data = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            modalInner.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #3b82f6; margin-bottom: 15px;"></i>
+                    <h2>Merci !</h2>
+                    <p>Votre message a été envoyé avec succès. Je vous répondrai très bientôt.</p>
+                    <button onclick="location.reload()" class="submit-btn" style="margin-top: 20px;">Fermer</button>
+                </div>
+            `;
+        } else {
+            throw new Error();
+        }
+    } catch (error) {
+        btn.innerText = "Erreur, réessayez.";
+        btn.disabled = false;
+    }
+});
+
+// Clipboard Email
+const hoverEmail = document.querySelector('.hover-email');
 hoverEmail?.addEventListener('click', () => {
-    const email = hoverEmail.querySelector('.email-text').innerText;
-    navigator.clipboard.writeText(email);
-    const originalContent = hoverEmail.innerHTML;
-    hoverEmail.innerHTML = 'Copié ! <i class="fas fa-check"></i>';
-    setTimeout(() => { hoverEmail.innerHTML = originalContent; }, 2000);
+    const emailTextElement = hoverEmail.querySelector('.email-text');
+    if(emailTextElement) {
+        const email = emailTextElement.innerText;
+        navigator.clipboard.writeText(email);
+        const originalContent = hoverEmail.innerHTML;
+        hoverEmail.innerHTML = 'Copié ! <i class="fas fa-check"></i>';
+        setTimeout(() => { hoverEmail.innerHTML = originalContent; }, 2000);
+    }
 });
 
 // ==========================================================================
@@ -208,11 +254,11 @@ hoverEmail?.addEventListener('click', () => {
 function openProjectDetails(index) {
     const project = myProjects[index];
     const modal = document.getElementById('projectDetailModal');
+    if(!modal) return;
     
     modal.innerHTML = `
         <div class="project-modal-card">
             <button class="close-detail" onclick="closeProjectModal()"><i class="fas fa-times"></i></button>
-            
             <div class="modal-scroll-area">
                 <div class="modal-header-container">
                     <div class="modal-main-img" style="background-image: url('${project.img}')"></div>
@@ -221,12 +267,10 @@ function openProjectDetails(index) {
                         <h2>${project.title}</h2>
                     </div>
                 </div>
-
                 <div class="modal-body-content">
                     <div class="left-col">
                         <h3 class="section-title"><i class="fas fa-info-circle"></i> À propos du projet</h3>
                         <p class="project-desc-text">${project.description}</p>
-                        
                         <div class="gallery-section">
                             <h3 class="section-title"><i class="fas fa-desktop"></i> Aperçus & Responsive</h3>
                             <div class="gallery-grid">
@@ -236,13 +280,11 @@ function openProjectDetails(index) {
                             </div>
                         </div>
                     </div>
-
                     <div class="right-col">
                         <h3 class="section-title"><i class="fas fa-code"></i> Technologies</h3>
                         <div class="tech-flex">
                             ${project.techs.map(t => `<span class="modal-badge">${t.toUpperCase()}</span>`).join('')}
                         </div>
-
                         ${project.link !== "#" ? `
                             <a href="${project.link}" target="_blank" class="cta-button" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;">
                                 Consulter le projet <i class="fas fa-external-link-alt"></i>
@@ -260,6 +302,6 @@ function openProjectDetails(index) {
 
 function closeProjectModal() {
     const modal = document.getElementById('projectDetailModal');
-    modal.classList.remove('active');
+    if(modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto';
 }
