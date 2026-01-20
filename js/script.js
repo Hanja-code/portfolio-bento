@@ -305,3 +305,34 @@ function closeProjectModal() {
     if(modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto';
 }
+
+function openCvModal() {
+    const modal = document.getElementById('cvModal');
+    modal.classList.add('active');
+    // On empêche le scroll de la page principale quand la modale est ouverte
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+    const modal = document.getElementById('cvModal');
+    modal.classList.remove('active');
+    // On réactive le scroll
+    document.body.style.overflow = 'auto';
+}
+// Détecter le clic sur le bouton de téléchargement pour fermer la modale
+document.addEventListener('click', function(e) {
+    // Si l'élément cliqué est le bouton de téléchargement (ou une icône à l'intérieur)
+    if (e.target.closest('.btn-download-final')) {
+        // On laisse un tout petit délai pour que le navigateur lance le téléchargement
+        setTimeout(() => {
+            closeCvModal();
+        }, 500); // 500ms suffisent pour ne pas interrompre l'action
+    }
+});
+
+// Fermer la modale si on clique sur le flou à l'extérieur
+document.getElementById('cvModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeCvModal();
+    }
+});

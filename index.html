@@ -47,37 +47,39 @@
     <main class="portfolio-grid">
         
         <section class="tile profile-section">
-<div class="profile-info">
-    <div class="profile-img">
-        <img src="assets/img/HANJA_Eli_Dina.png" 
-             alt="Portrait de HANJA Eli Dina – Développeur Full Stack à Madagascar" 
-             loading="lazy">
-    </div>
-    <h1 class="profile-name">
-        <span class="first-name">HANJA</span><br>
-        <span class="last-name">Eli Dina</span>
-    </h1>
+            <div class="profile-info">
+                <div class="profile-img">
+                    <img src="assets/img/HANJA_Eli_Dina.png" 
+                        alt="Portrait de HANJA Eli Dina – Développeur Full Stack à Madagascar" 
+                        loading="lazy">
+                </div>
+                <h1 class="profile-name">
+                    <span class="first-name">HANJA</span><br>
+                    <span class="last-name">Eli Dina</span>
+                </h1>
 
-<p class="profile-bio">
-    Après mon baccalauréat, je me suis orienté vers l’informatique sans réel plan, sur les conseils de ma famille,
-    sans aucune base en développement. Mes débuts ont été difficiles, entre HTML, CSS et JavaScript,
-    sans projet concret ni réelle compréhension.
-    <br><br>
-    Avec le temps, la curiosité et les recherches personnelles m’ont permis de découvrir le potentiel du développement web.
-    Malgré les doutes, j’ai choisi de m’y investir sérieusement. La formation de développeur web chez GasyTech
-    a marqué un tournant et m’a permis de construire mes premiers projets.
-    <br><br>
-    Aujourd’hui, je développe des applications web en <strong>Front-end</strong> et <strong>Back-end</strong>
-    avec des technologies modernes, tout en continuant à apprendre et à transformer mes idées en solutions concrètes.
-</p>
+                <h2 class="profile-title">Développeur Full Stack</h2>
 
-    <div class="social-links">
-        <a href="https://github.com/Hanja-code" target="_blank" rel="noopener" title="GitHub" aria-label="Visiter mon profil GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/hanja-eli-dina-776211279" target="_blank" rel="noopener" title="LinkedIn" aria-label="Suivre mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://web.facebook.com/profile.php?id=100092947646988" target="_blank" rel="noopener" title="Facebook" aria-label="Me retrouver sur Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="mailto:hanjaelidina@gmail.com" title="Envoyer un email" aria-label="M'envoyer un email direct"><i class="fas fa-envelope"></i></a>
-    </div>
-</div>
+                <p class="profile-bio">
+                    Après mon baccalauréat, je me suis orienté vers l’informatique sans réel plan, sur les conseils de ma famille,
+                    sans aucune base en développement. Mes débuts ont été difficiles, entre HTML, CSS et JavaScript,
+                    sans projet concret ni réelle compréhension.
+                    <br><br>
+                    Avec le temps, la curiosité et les recherches personnelles m’ont permis de découvrir le potentiel du développement web.
+                    Malgré les doutes, j’ai choisi de m’y investir sérieusement. La formation de développeur web chez GasyTech
+                    a marqué un tournant et m’a permis de construire mes premiers projets.
+                    <br><br>
+                    Aujourd’hui, je développe des applications web en <strong>Front-end</strong> et <strong>Back-end</strong>
+                    avec des technologies modernes, tout en continuant à apprendre et à transformer mes idées en solutions concrètes.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://github.com/Hanja-code" target="_blank" rel="noopener" title="GitHub" aria-label="Visiter mon profil GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/hanja-eli-dina-776211279" target="_blank" rel="noopener" title="LinkedIn" aria-label="Suivre mon profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=100092947646988" target="_blank" rel="noopener" title="Facebook" aria-label="Me retrouver sur Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="mailto:hanjaelidina@gmail.com" title="Envoyer un email" aria-label="M'envoyer un email direct"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
 
             <div class="localisation">
                 <div class="location">
@@ -135,7 +137,7 @@
             </div>
 
             <p class="cv-text">Envie d'en savoir plus sur mon parcours ?</p>
-            <button class="cv-button" aria-label="Télécharger le curriculum vitae de Hanja Eli Dina">
+            <button class="cv-button" onclick="openCvModal()" aria-label="Voir le curriculum vitae de Hanja Eli Dina">
                 <i class="fas fa-file-download" aria-hidden="true"></i> Télécharger mon CV
             </button>
         </section>
@@ -219,6 +221,32 @@
                             <div id="modal-gallery-grid" class="gallery-grid"></div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cvModal" class="modal-overlay">
+            <div class="cv-modal-content">
+                <button class="close-modal" onclick="closeCvModal()" style="top: 30px; right: 30px;">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="cv-modal-header">
+                    <h2>Mon Curriculum Vitae</h2>
+                    <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                        Développeur Full Stack
+                    </span>
+                </div>
+
+                <div class="cv-container">
+                    <iframe src="assets/cv/CV_HANJA_Eli_Dina.pdf"></iframe>
+                </div>
+
+                <div class="cv-modal-footer">
+                    <button onclick="closeCvModal()" class="btn-cancel">Fermer</button>
+                    <a href="assets/cv/CV_HANJA_Eli_Dina.pdf" download="CV_HANJA_Eli_Dina" class="btn-download-final">
+                        <i class="fas fa-cloud-download-alt"></i> Télécharger PDF
+                    </a>
                 </div>
             </div>
         </div>
