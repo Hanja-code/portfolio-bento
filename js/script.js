@@ -44,7 +44,7 @@ const myProjects = [
         "techs": ["html5", "css3-alt"],
         "img": "assets/img/project_img/integration_maquette/digital_web_agency.png",
         "size": "small",
-        "link": "#",
+        "link": "https://hanja-code.github.io/mon-agence-digitale/", // LIEN MIS À JOUR
         "description": "Intégration pixel-perfect d'une maquette Figma complexe mettant l'accent sur les animations fluides et le responsive design.",
         "gallery": []
     },
@@ -59,6 +59,8 @@ const myProjects = [
         "gallery": []
     }
 ];
+
+// N'oublie pas de supprimer ou commenter l'appel à renderProjects() car le HTML est maintenant statique.
 
 // ==========================================================================
 // 2. RENDU DES PROJETS (GRID)
@@ -100,7 +102,7 @@ function renderProjects() {
     `).join('');
 }
 
-renderProjects();
+// renderProjects();
 
 // ==========================================================================
 // 3. CURSEUR 3D (CUBE) AVEC INERTIE
