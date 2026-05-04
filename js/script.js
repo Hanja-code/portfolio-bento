@@ -41,12 +41,15 @@ const myProjects = [
     {
         "title": "Digital Creative Agency",
         "tag": "Intégration • 2024",
-        "techs": ["html5", "css3-alt"],
+        "techs": ["html5", "css3-alt","js"],
         "img": "assets/img/project_img/integration_maquette/digital_web_agency.png",
         "size": "small",
         "link": "https://hanja-code.github.io/mon-agence-digitale/", // LIEN MIS À JOUR
         "description": "Intégration pixel-perfect d'une maquette Figma complexe mettant l'accent sur les animations fluides et le responsive design.",
-        "gallery": []
+        "gallery": [
+            "assets/img/project_img/integration_maquette/section_service.png",
+            "assets/img/project_img/integration_maquette/section_aperçu.png"
+        ]
     },
     {
         "title": "AetherFlow",
