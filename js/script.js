@@ -9,6 +9,7 @@ const myProjects = [
         "img": "assets/img/project_img/polidocs/polidocs_pc.png",
         "size": "large",
         "link": "#",
+        "github": "#", // À compléter avec ton lien
         "description": "Système complet de gestion documentaire permettant l'archivage, la recherche intelligente et la gestion des droits utilisateurs. Développé avec une architecture PHP/MySQL robuste et testé sous environnement Xampp.",
         "gallery": [
             "assets/img/project_img/polidocs/polidocs_tablette.png",
@@ -22,6 +23,7 @@ const myProjects = [
         "img": "assets/img/project_img/polymathes/formulaire_connexion.png",
         "size": "small",
         "link": "#",
+        "github": "#", // À compléter avec ton lien
         "description": "Solution SaaS dédiée aux établissements scolaires pour la gestion des notes, des absences et de la communication parents-professeurs. Utilise MySQL pour une gestion de base de données relationnelle complexe.",
         "gallery": [
             "assets/img/project_img/polymathes/Acceuil_polymathes.png",
@@ -35,6 +37,7 @@ const myProjects = [
         "img": "assets/img/project_img/bibliotech/Biblio_Tech.png",
         "size": "small",
         "link": "#",
+        "github": "#", // À compléter avec ton lien
         "description": "Application de gestion de bibliothèque moderne avec suivi des emprunts et catalogue interactif. L'environnement local a été configuré via Wamp pour le développement back-end.",
         "gallery": []
     },
@@ -44,7 +47,8 @@ const myProjects = [
         "techs": ["html5", "css3-alt","js"],
         "img": "assets/img/project_img/integration_maquette/digital_web_agency.png",
         "size": "small",
-        "link": "https://hanja-code.github.io/mon-agence-digitale/", // LIEN MIS À JOUR
+        "link": "https://hanja-code.github.io/mon-agence-digitale/",
+        "github": "https://github.com/Hanja-code/mon-agence-digitale",
         "description": "Intégration pixel-perfect d'une maquette Figma complexe mettant l'accent sur les animations fluides et le responsive design.",
         "gallery": [
             "assets/img/project_img/integration_maquette/section_service.png",
@@ -58,6 +62,7 @@ const myProjects = [
         "img": "assets/img/project_img/AetherFlow/AetherFlow.png",
         "size": "small",
         "link": "#",
+        "github": "#", // À compléter avec ton lien
         "description": "Interface dynamique développée avec React et stylisée avec Tailwind CSS, offrant une expérience utilisateur fluide pour la visualisation de données en temps réel.",
         "gallery": []
     }
@@ -291,9 +296,19 @@ function openProjectDetails(index) {
                             ${project.techs.map(t => `<span class="modal-badge">${t.toUpperCase()}</span>`).join('')}
                         </div>
                         ${project.link !== "#" ? `
-                            <a href="${project.link}" target="_blank" class="cta-button" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                                Consulter le projet <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <div class="modal-actions">
+                                ${project.link !== "#" ? `
+                                    <a href="${project.link}" target="_blank" class="cta-button">
+                                        Consulter le site <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                ` : ''}
+                                
+                                ${project.github ? `
+                                    <a href="${project.github}" target="_blank" class="btn-github">
+                                        Voir le code <i class="fab fa-github"></i>
+                                    </a>
+                                ` : ''}
+                            </div>
                         ` : ''}
                     </div>
                 </div>

@@ -541,6 +541,57 @@ h2.profile-title {
     width: 95%; max-width: 450px; position: relative;
 }
 
+/* --- BOUTONS ACTIONS DANS LE MODAL --- */
+.modal-actions {
+    display: flex;
+    flex-direction: column; /* Colonne par défaut pour mobile */
+    gap: 12px;
+    margin-top: 20px;
+}
+.modal-actions a{
+    text-decoration: none;
+}
+
+/* Bouton GitHub spécifique */
+.btn-github {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-github
+
+.btn-github:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-dim);
+    transform: translateY(-2px);
+}
+
+.btn-github i {
+    font-size: 1.2rem;
+}
+
+/* Ajustement pour écrans larges */
+@media (min-width: 768px) {
+    .modal-actions {
+        flex-direction: row; /* Côte à côte sur PC */
+    }
+    .cta-button, .btn-github {
+        flex: 1; /* Les deux boutons prennent la même largeur */
+    }
+} 
+
 #contact-form {
     display: flex;
     flex-direction: column;
