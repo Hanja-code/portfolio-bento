@@ -343,6 +343,35 @@ function closeProjectModal() {
     document.body.style.overflow = 'auto';
 }
 
+document.addEventListener('click', (e) => {
+    const galleryImage = e.target.closest('.gallery-item img');
+    if (!galleryImage) return;
+    openGalleryPreview(galleryImage.src, galleryImage.alt || 'Apercu du projet');
+});
+
+function openGalleryPreview(src, alt) {
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('galleryLightboxImg');
+    if (!lightbox || !lightboxImg) return;
+
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('active');
+}
+
+function closeGalleryPreview() {
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('galleryLightboxImg');
+    if (!lightbox || !lightboxImg) return;
+
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeGalleryPreview();
+});
+
 function openCvModal() {
     const modal = document.getElementById('cvModal');
     modal.classList.add('active');

@@ -378,6 +378,13 @@
                 </div>
             </div>
         </div>
+
+        <div id="galleryLightbox" class="gallery-lightbox" onclick="closeGalleryPreview()">
+            <button class="gallery-lightbox-close" type="button" onclick="closeGalleryPreview()" aria-label="Fermer l'aperçu">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <img id="galleryLightboxImg" src="" alt="" onclick="event.stopPropagation()">
+        </div>
     </main>
 
     <script src="js/script.js"></script>
