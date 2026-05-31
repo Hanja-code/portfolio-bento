@@ -8,8 +8,8 @@ const myProjects = [
         "techs": ["html5", "css3-alt", "js", "ajax", "php", "mysql", "xampp"],
         "img": "assets/img/project_img/polidocs/polidocs_pc.png",
         "size": "large",
-        "link": "#",
-        "github": "#", // À compléter avec ton lien
+        "link": "https://poly-docs-kappa.vercel.app/",
+        "github": "https://github.com/Hanja-code/PolyDocs",
         "description": "Système complet de gestion documentaire permettant l'archivage, la recherche intelligente et la gestion des droits utilisateurs. Développé avec une architecture PHP/MySQL robuste et testé sous environnement Xampp.",
         "gallery": [
             "assets/img/project_img/polidocs/polidocs_tablette.png",
@@ -23,7 +23,7 @@ const myProjects = [
         "img": "assets/img/project_img/polymathes/formulaire_connexion.png",
         "size": "small",
         "link": "#",
-        "github": "#", // À compléter avec ton lien
+        "github": "#",
         "description": "Solution SaaS dédiée aux établissements scolaires pour la gestion des notes, des absences et de la communication parents-professeurs. Utilise MySQL pour une gestion de base de données relationnelle complexe.",
         "gallery": [
             "assets/img/project_img/polymathes/Acceuil_polymathes.png",
@@ -37,7 +37,7 @@ const myProjects = [
         "img": "assets/img/project_img/bibliotech/Biblio_Tech.png",
         "size": "small",
         "link": "#",
-        "github": "#", // À compléter avec ton lien
+        "github": "#",
         "description": "Application de gestion de bibliothèque moderne avec suivi des emprunts et catalogue interactif. L'environnement local a été configuré via Wamp pour le développement back-end.",
         "gallery": []
     },
@@ -62,9 +62,26 @@ const myProjects = [
         "img": "assets/img/project_img/AetherFlow/AetherFlow.png",
         "size": "small",
         "link": "#",
-        "github": "#", // À compléter avec ton lien
+        "github": "https://github.com/Hanja-code/symphonie",
         "description": "Interface dynamique développée avec React et stylisée avec Tailwind CSS, offrant une expérience utilisateur fluide pour la visualisation de données en temps réel.",
         "gallery": []
+    },
+    {
+        "title": "Groupe Ako",
+        "tag": "Site musical - 2025",
+        "techs": ["react", "tailwind", "js"],
+        "img": "assets/img/project_img/ako/ACEUILLE AKO.png",
+        "size": "small",
+        "link": "https://groupe-ako.vercel.app/",
+        "github": "https://github.com/Hanja-code/Groupe-Ako",
+        "description": "Site vitrine pour un groupe musical, concu avec React et Tailwind CSS pour presenter l'univers artistique, les contenus du groupe et une experience responsive moderne.",
+        "gallery": [
+            "assets/img/project_img/ako/evenement.png",
+            "assets/img/project_img/ako/evenement (2).png",
+            "assets/img/project_img/ako/responsive aceuill.png",
+            "assets/img/project_img/ako/respensive evenement.png",
+            "assets/img/project_img/ako/responsive evenement tablette.png"
+        ]
     }
 ];
 
@@ -295,15 +312,15 @@ function openProjectDetails(index) {
                         <div class="tech-flex">
                             ${project.techs.map(t => `<span class="modal-badge">${t.toUpperCase()}</span>`).join('')}
                         </div>
-                        ${project.link !== "#" ? `
+                        ${(project.link && project.link !== "#") || (project.github && project.github !== "#") ? `
                             <div class="modal-actions">
-                                ${project.link !== "#" ? `
+                                ${project.link && project.link !== "#" ? `
                                     <a href="${project.link}" target="_blank" class="cta-button">
                                         Consulter le site <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 ` : ''}
                                 
-                                ${project.github ? `
+                                ${project.github && project.github !== "#" ? `
                                     <a href="${project.github}" target="_blank" class="btn-github">
                                         Voir le code <i class="fab fa-github"></i>
                                     </a>

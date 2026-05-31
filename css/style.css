@@ -506,16 +506,25 @@ h2.profile-title {
     100% { transform: scale(3); opacity: 0; }
 }
 
-.contact-main { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 24px; }
+.contact-main { flex: 1; display: flex; flex-direction: column; justify-content: center;  margin-top: 24px; }
 
 .cta-button {
     margin-top: 15px; background: var(--accent); color: white;
-    padding: 15px; border-radius: 15px; text-align: center;
+    padding: 15px 22px; border-radius: 15px; text-align: center;
     font-weight: bold; display: flex; align-items: center; justify-content: center;
     gap: 10px; transition: 0.3s; border: none; cursor: none;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 52px;
+    flex: 0 0 auto;
+    white-space: nowrap;
 }
 
 .cta-button:hover { background: #113d9b; transform: translateY(-2px); }
+
+.contact-section .cta-button {
+    width: 100%;
+}
 
 .hover-email {
     margin-top: 15px; opacity: 0; transform: translateY(10px);
@@ -544,12 +553,22 @@ h2.profile-title {
 /* --- BOUTONS ACTIONS DANS LE MODAL --- */
 .modal-actions {
     display: flex;
+    align-items: stretch;
     flex-direction: column; /* Colonne par défaut pour mobile */
     gap: 12px;
     margin-top: 20px;
 }
 .modal-actions a{
     text-decoration: none;
+}
+
+.modal-actions .cta-button,
+.modal-actions .btn-github {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 0;
+    padding: 15px;
+    flex: 1 1 0;
 }
 
 /* Bouton GitHub spécifique */
@@ -570,8 +589,6 @@ h2.profile-title {
     cursor: pointer;
 }
 
-.btn-github
-
 .btn-github:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--text-dim);
@@ -587,7 +604,7 @@ h2.profile-title {
     .modal-actions {
         flex-direction: row; /* Côte à côte sur PC */
     }
-    .cta-button, .btn-github {
+    .modal-actions .cta-button, .modal-actions .btn-github {
         flex: 1; /* Les deux boutons prennent la même largeur */
     }
 } 
