@@ -62,7 +62,7 @@ const myProjects = [
         "img": "assets/img/project_img/AetherFlow/AetherFlow.png",
         "size": "small",
         "link": "#",
-        "github": "https://github.com/Hanja-code/symphonie",
+        "github": "#",
         "description": "Interface dynamique développée avec React et stylisée avec Tailwind CSS, offrant une expérience utilisateur fluide pour la visualisation de données en temps réel.",
         "gallery": []
     },
